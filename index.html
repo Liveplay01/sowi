@@ -70,7 +70,7 @@ p{font-size:clamp(.95rem,1.5vw,1.1rem)}
 }
 
 /* ===== HERO ===== */
-#hero{min-height:100vh;background:var(--dark);color:var(--cream);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:80px 1.5rem 4rem}
+#hero{min-height:100vh;background:var(--dark);color:var(--cream);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:80px 1.5rem 8rem}
 .hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .float-icon{position:absolute;opacity:.12;animation:floatUp 8s linear infinite;font-size:52px;color:#fff;line-height:1;display:block}
 .float-icon:nth-child(1){left:8%;animation-delay:0s;animation-duration:9s}
@@ -177,7 +177,7 @@ section:nth-child(odd){background:var(--cream);color:var(--dark)}
 .echo-steps li{counter-increment:step;padding:.7rem 0 .7rem 3rem;position:relative;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem}
 .echo-steps li::before{content:counter(step);position:absolute;left:0;top:.7rem;width:28px;height:28px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;font-family:var(--ff-head)}
 .filterbubble-section{margin-top:4rem}
-.filterbubble-diagram{position:relative;width:340px;height:340px;margin:2rem auto}
+.filterbubble-diagram{position:relative;width:340px;height:340px;margin:2rem auto;overflow:hidden;border-radius:50%}
 .fb-circle{position:absolute;border-radius:50%;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.78rem;color:var(--cream);animation:pulsate 4s ease-in-out infinite}
 .fb-circle:nth-child(1){width:80px;height:80px;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--red);font-weight:700;animation-delay:0s}
 .fb-circle:nth-child(2){width:160px;height:160px;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(192,57,43,.25);animation-delay:.6s}
@@ -303,7 +303,7 @@ footer{background:#111;color:var(--cream);padding:4rem 0 2rem}
   .timeline{gap:1.5rem}
   .timeline::before{display:none}
   #algo-feed{gap:.7rem}
-  .filterbubble-diagram{width:260px;height:260px}
+  .filterbubble-diagram{width:300px;height:300px}
   .echo-box{padding:1.5rem}
 }
 </style>

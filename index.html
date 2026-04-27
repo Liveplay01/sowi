@@ -177,12 +177,12 @@ section:nth-child(odd){background:var(--cream);color:var(--dark)}
 .echo-steps li{counter-increment:step;padding:.7rem 0 .7rem 3rem;position:relative;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem}
 .echo-steps li::before{content:counter(step);position:absolute;left:0;top:.7rem;width:28px;height:28px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;font-family:var(--ff-head)}
 .filterbubble-section{margin-top:4rem}
-.filterbubble-diagram{position:relative;width:340px;height:340px;margin:2rem auto;overflow:hidden;border-radius:50%}
-.fb-circle{position:absolute;border-radius:50%;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.78rem;color:var(--cream);animation:pulsate 4s ease-in-out infinite}
-.fb-circle:nth-child(1){width:80px;height:80px;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--red);font-weight:700;animation-delay:0s}
-.fb-circle:nth-child(2){width:160px;height:160px;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(192,57,43,.25);animation-delay:.6s}
-.fb-circle:nth-child(3){width:240px;height:240px;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(192,57,43,.1);animation-delay:1.2s}
-.fb-circle:nth-child(4){width:320px;height:320px;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(192,57,43,.04);animation-delay:1.8s}
+.filterbubble-diagram{position:relative;width:300px;height:300px;margin:2rem auto}
+.fb-circle{position:absolute;border-radius:50%;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.78rem;color:var(--cream);animation:pulsate 4s ease-in-out infinite;top:50%;left:50%;transform:translate(-50%,-50%)}
+.fb-circle:nth-child(1){width:72px;height:72px;background:var(--red);font-weight:700;font-size:.82rem;animation-delay:0s;z-index:4}
+.fb-circle:nth-child(2){width:144px;height:144px;background:rgba(192,57,43,.25);animation-delay:.6s;z-index:3}
+.fb-circle:nth-child(3){width:216px;height:216px;background:rgba(192,57,43,.1);animation-delay:1.2s;z-index:2}
+.fb-circle:nth-child(4){width:288px;height:288px;background:rgba(192,57,43,.04);animation-delay:1.8s;z-index:1}
 
 /* ===== SECTION 4: QUIZ ===== */
 .quiz-wrapper{max-width:700px;margin:0 auto}
@@ -303,7 +303,7 @@ footer{background:#111;color:var(--cream);padding:4rem 0 2rem}
   .timeline{gap:1.5rem}
   .timeline::before{display:none}
   #algo-feed{gap:.7rem}
-  .filterbubble-diagram{width:300px;height:300px}
+  .filterbubble-diagram{width:280px;height:280px}
   .echo-box{padding:1.5rem}
 }
 </style>

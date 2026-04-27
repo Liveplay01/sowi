@@ -177,12 +177,20 @@ section:nth-child(odd){background:var(--cream);color:var(--dark)}
 .echo-steps li{counter-increment:step;padding:.7rem 0 .7rem 3rem;position:relative;border-bottom:1px solid rgba(255,255,255,.08);font-size:.9rem}
 .echo-steps li::before{content:counter(step);position:absolute;left:0;top:.7rem;width:28px;height:28px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;font-family:var(--ff-head)}
 .filterbubble-section{margin-top:4rem}
-.filterbubble-diagram{position:relative;width:300px;height:300px;margin:2rem auto}
-.fb-circle{position:absolute;border-radius:50%;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.78rem;color:var(--cream);animation:pulsate 4s ease-in-out infinite;top:50%;left:50%;transform:translate(-50%,-50%)}
-.fb-circle:nth-child(1){width:72px;height:72px;background:var(--red);font-weight:700;font-size:.82rem;animation-delay:0s;z-index:4}
-.fb-circle:nth-child(2){width:144px;height:144px;background:rgba(192,57,43,.25);animation-delay:.6s;z-index:3}
-.fb-circle:nth-child(3){width:216px;height:216px;background:rgba(192,57,43,.1);animation-delay:1.2s;z-index:2}
-.fb-circle:nth-child(4){width:288px;height:288px;background:rgba(192,57,43,.04);animation-delay:1.8s;z-index:1}
+.fb-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:0;max-width:680px;margin:2rem auto 1rem;align-items:stretch}
+.fb-col{border-radius:6px;padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.8rem}
+.fb-col-good{background:rgba(39,174,96,.08);border:1px solid rgba(39,174,96,.3)}
+.fb-col-bad{background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.35)}
+.fb-col-head{font-family:var(--ff-head);font-size:1rem;font-weight:700;margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem}
+.fb-col-good .fb-col-head{color:#4ade80}
+.fb-col-bad .fb-col-head{color:var(--red)}
+.fb-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fb-list li{font-size:.85rem;display:flex;align-items:flex-start;gap:.5rem;line-height:1.4;opacity:.88}
+.fb-col-good .fb-list .fa-check{color:#4ade80;flex-shrink:0;margin-top:.15rem}
+.fb-col-bad .fb-list .fa-xmark{color:var(--red);flex-shrink:0;margin-top:.15rem}
+.fb-divider{display:flex;align-items:center;justify-content:center;padding:0 1rem;font-family:var(--ff-head);font-size:1.3rem;font-weight:900;color:rgba(245,240,232,.3)}
+.fb-arrow-label{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.78rem;opacity:.5;margin-top:1.2rem;font-style:italic}
+@media(max-width:600px){.fb-compare{grid-template-columns:1fr;}.fb-divider{padding:.5rem 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);margin:.5rem 0}}
 
 /* ===== SECTION 4: QUIZ ===== */
 .quiz-wrapper{max-width:700px;margin:0 auto}
@@ -303,7 +311,6 @@ footer{background:#111;color:var(--cream);padding:4rem 0 2rem}
   .timeline{gap:1.5rem}
   .timeline::before{display:none}
   #algo-feed{gap:.7rem}
-  .filterbubble-diagram{width:280px;height:280px}
   .echo-box{padding:1.5rem}
 }
 </style>
@@ -489,21 +496,35 @@ footer{background:#111;color:var(--cream);padding:4rem 0 2rem}
         <h3>Die Filterbubble – was bedeutet das?</h3>
         <p style="max-width:580px;margin:.8rem auto;opacity:.75;font-size:.95rem">Ein Algorithmus zeigt dir immer mehr vom <strong>Gleichen</strong>. Mit der Zeit siehst du kaum noch andere Perspektiven – du lebst in einer <strong>Filterblase</strong>.</p>
       </div>
-      <div class="filterbubble-diagram" aria-label="Filterbubble-Diagramm: konzentrische Kreise">
-        <div class="fb-circle" style="color:var(--cream)">Du</div>
-        <div class="fb-circle" style="color:var(--cream)">Deine Interessen</div>
-        <div class="fb-circle" style="color:rgba(245,240,232,.7)">Ähnliche Inhalte</div>
-        <div class="fb-circle" style="color:rgba(245,240,232,.4)">Andere Meinungen (ausgeblendet)</div>
+      <div class="fb-compare" aria-label="Vergleich: Normaler Feed vs. Filterblase">
+        <div class="fb-col fb-col-good">
+          <div class="fb-col-head"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i> Normaler Feed</div>
+          <ul class="fb-list">
+            <li><i class="fa-solid fa-check"></i> Verschiedene Meinungen sichtbar</li>
+            <li><i class="fa-solid fa-check"></i> Gegenargumente tauchen auf</li>
+            <li><i class="fa-solid fa-check"></i> Unterschiedliche Quellen</li>
+            <li><i class="fa-solid fa-check"></i> Neue Themen werden entdeckt</li>
+            <li><i class="fa-solid fa-check"></i> Eigene Überzeugungen werden hinterfragt</li>
+          </ul>
+        </div>
+        <div class="fb-divider" aria-hidden="true">
+          <span>vs.</span>
+        </div>
+        <div class="fb-col fb-col-bad">
+          <div class="fb-col-head"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> In der Filterblase</div>
+          <ul class="fb-list">
+            <li><i class="fa-solid fa-xmark"></i> Nur noch eine Richtung sichtbar</li>
+            <li><i class="fa-solid fa-xmark"></i> Gegenpositionen verschwinden</li>
+            <li><i class="fa-solid fa-xmark"></i> Immer dieselben Accounts</li>
+            <li><i class="fa-solid fa-xmark"></i> Themenspektrum wird enger</li>
+            <li><i class="fa-solid fa-xmark"></i> Überzeugungen werden nie geprüft</li>
+          </ul>
+        </div>
       </div>
-      <div style="max-width:560px;margin:2rem auto;display:grid;grid-template-columns:1fr 1fr;gap:1rem" class="reveal">
-        <div style="background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:4px;padding:1.2rem">
-          <h4 style="font-family:var(--ff-head);margin-bottom:.5rem;color:var(--red)">Echokammer</h4>
-          <p style="font-size:.85rem;opacity:.8">Du hörst nur noch Meinungen, die deine eigenen bestätigen. Gegenpositionen werden unsichtbar.</p>
-        </div>
-        <div style="background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.3);border-radius:4px;padding:1.2rem">
-          <h4 style="font-family:var(--ff-head);margin-bottom:.5rem;color:var(--red)">Verstärkung</h4>
-          <p style="font-size:.85rem;opacity:.8">Extreme Inhalte erzeugen mehr Reaktionen – der Algorithmus zeigt sie häufiger.</p>
-        </div>
+      <div class="fb-arrow-label" aria-hidden="true">
+        <i class="fa-solid fa-arrow-right-long"></i>
+        <span>Je länger du klickst, desto tiefer gerätst du in die Blase</span>
+        <i class="fa-solid fa-arrow-right-long"></i>
       </div>
     </div>
   </div>
